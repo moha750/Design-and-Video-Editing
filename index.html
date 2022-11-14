@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+<body>
+
+    <h1 class="h0">مُرشحو النيابة للجنة التصميم والمونتاج</h1>
+
+    <div class="one">
+        <h1 class="h1">..شوف الإبداع قبل لا تحكم وتصوت</h1>
+        <a class="link" target="_blank" href="https://drive.google.com/file/d/1-tx-_SNZXB7wAt6vhWM5S2GcPOP0RQCl/view"><button class="button"> <span class="span1"><i class="fa-solid fa-eye"></i></span> <p class="p1">ملف المرشح الثاني</p>  </button></a>
+        <a class="link" target="_blank" href="https://drive.google.com/file/d/1V8gLda1fshynU6Q771WOlsG9oPMjUCjn/view"><button class="button"> <span class="span1"><i class="fa-solid fa-eye"></i></span> <p class="p1">ملف المرشح الأول</p>  </button></a>
+    </div>
+<form name="form" action="https://script.google.com/macros/s/AKfycbz1rY3ERXq881shfpXZpd8PQkJICMntkk44W6NTeWNDEDxqpEKeHq2ZQEKESIMjBVYn/exec">
+    <div class="two">
+        <h1 class="h2">..صوّت لمن تراه الأكفى</h1>
+        <div class="div1">
+        <input class="radio" type="radio" name="المُرشح" id="1" value="هديل" required>
+        <label class="label" for="1">  <i class="fa-solid fa-user"></i> المُرشح الثاني </label>
+        </div>
+        <div class="div2">
+        <input class="radio" type="radio" name="المُرشح" id="2" value="شهد" required>
+        <label class="label" for="2"><i class="fa-solid fa-user"></i> المُرشح الأول </label>
+        </div>
+        <div class="name">
+        <input id="text" class="text" type="text" name="الأسم" placeholder="أكتب أسمك يـ مُبدع" required> 
+        <button onclick="sweetalertclick()" class="send">صوّت الآن</button>
+        </div>
+    </div>
+</form>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz1rY3ERXq881shfpXZpd8PQkJICMntkk44W6NTeWNDEDxqpEKeHq2ZQEKESIMjBVYn/exec'
+    const form = document.forms['form']
+    
+    form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+const swalWithBootstrapButton = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-yes',
+    cancelButton: 'btn btn-no'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'هل أنت متأكد من أختيارك لهذا المٌرشح؟',
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'نعم، وإن شاء الله يفوز',
+  cancelButtonText: 'لا، غيرت رأيي',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButton.fire({
+  title: '!شكرًا على صوتك',
+  icon: 'success',
+  showCancelButton: true,
+  confirmButtonText: '<a target="_blank" href="https://twitter.com/AB_KFU">الذهاب إلى تويتر</a>',
+  cancelButtonText: '<a target="_blank" href="https://web.telegram.org/?legacy=1#/im?p=g629588265">الرجوع إلى مجموعة اللجنة</a>',
+  reverseButtons: true
+})
+  }
+})
+        })
+    </script>
+
+<script>
+	function sweetalertclick(){
+        const swalWithBootstrapButto = Swal.mixin({
+  customClass: {
+    confirmButton: 'sorry',
+  },
+  buttonsStyling: false
+})
+swalWithBootstrapButto.fire({
+icon: 'error',
+title: '!شخبارك يـ شاطر',
+text: 'خليك شطور وكمل جميع البيانات المطلوبة',
+confirmButtonColor: '#0051b2',
+confirmButtonText: 'إن شاء الله بصير شطور',
+})}
+  </script>
+
+<script>(function(w, d) { w.CollectId = "631cb70f34ef7b62f8f0cdeb"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+
+</body>
+</html>
